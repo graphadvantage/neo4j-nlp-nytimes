@@ -12,8 +12,11 @@ graphaware-server-enterprise-all.3.1.3.47.jar
 
 https://products.graphaware.com/download/framework-server-enterprise/graphaware-server-enterprise-all-3.1.3.47.jar
 
-Copy the .jars to the Neo4j /plugins folder
- graphaware-nlp-1.0-SNAPSHOT.jar nlp-opennlp-1.0-SNAPSHOT.jar
+Copy the .jars to the Neo4j /plugins folder:
+
+graphaware-nlp-1.0-SNAPSHOT.jar
+
+nlp-opennlp-1.0-SNAPSHOT.jar
 
 
 Add the following to the neo4j.conf file.
