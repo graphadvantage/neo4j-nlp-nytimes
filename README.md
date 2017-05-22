@@ -2,9 +2,19 @@
 
 ### Exploration of GraphAware NLP extension for neo4j-nlp-nytimes
 
-Usage - install .jars in Neo4j plugin folder
+Dependencies - Neo4j Enterprise 3.1.3, apoc 3.1.3.7
 
-Built for Neo4j enterprise version 3.1.3, also install apoc 3.1.3.7
+Install:
+
+Download the GraphAware Server plugin for Neo4j Enterprise 3.1.3, and copy it to the Neo4j /plugins folder
+
+graphaware-server-enterprise-all.3.1.3.47.jar
+
+https://products.graphaware.com/download/framework-server-enterprise/graphaware-server-enterprise-all-3.1.3.47.jar
+
+Copy the .jars to the Neo4j /plugins folder
+ graphaware-nlp-1.0-SNAPSHOT.jar nlp-opennlp-1.0-SNAPSHOT.jar
+
 
 Add the following to the neo4j.conf file.
 
