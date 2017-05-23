@@ -47,19 +47,19 @@ And then:
 
 ```
 //Load News from import folder
-WITH "file:///nlp-nytimes/article-1.json" AS url
+WITH "file:///PATH_TO_NEO4J/import/article-1.json" AS url
 CALL apoc.load.json(url) YIELD value AS map
 CREATE (n:News) SET n += map, n.uuid = apoc.create.uuid()
-WITH "file:///nlp-nytimes/article-2.json" AS url
+WITH "file:///PATH_TO_NEO4J/import/article-2.json" AS url
 CALL apoc.load.json(url) YIELD value AS map
 CREATE (n:News) SET n += map, n.uuid = apoc.create.uuid()
-WITH "file:///nlp-nytimes/article-3.json" AS url
+WITH "file:///PATH_TO_NEO4J/import/article-3.json" AS url
 CALL apoc.load.json(url) YIELD value AS map
 CREATE (n:News) SET n += map, n.uuid = apoc.create.uuid()
-WITH "file:///nlp-nytimes/article-4.json" AS url
+WITH "file:///PATH_TO_NEO4J/import/article-4.json" AS url
 CALL apoc.load.json(url) YIELD value AS map
 CREATE (n:News) SET n += map, n.uuid = apoc.create.uuid()
-WITH "file:///nlp-nytimes/article-5.json" AS url
+WITH "file:///PATH_TO_NEO4J//import/article-5.json" AS url
 CALL apoc.load.json(url) YIELD value AS map
 CREATE (n:News) SET n += map, n.uuid = apoc.create.uuid()
 
@@ -68,11 +68,11 @@ CREATE (n:News) SET n += map, n.uuid = apoc.create.uuid()
 And then:
 
 ```
-//Annotate News nodes
+//Annotation and Sentiment Annotation with StanfordNLP
 MATCH (n:News)
-CALL ga.nlp.annotate({text:n.text, id: n.uuid}) YIELD result
+CALL ga.nlp.annotate({text:n.text, id: n.uuid, textProcessor: "com.graphaware.nlp.processor.stanford.StanfordTextProcessor", pipeline: "tokenizerAndSentiment"}) YIELD result
 MERGE (n)-[:HAS_ANNOTATED_TEXT]->(result)
-RETURN n, result;
+RETURN n, result
 ```
 
 More info here
